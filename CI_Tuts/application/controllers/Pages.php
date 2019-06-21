@@ -43,7 +43,7 @@
             public function form_posted (){
               // Form validation loaded locally, could also load it globally in config/autoload.php in the libraries configuration
               $this->load->library('form_validation');
-              $this->form_validation->set_rules('title','Title','trim|required'); // To use xss_clean it must be configured first in config/config.php
+              $this->form_validation->set_rules('title','Title','trim|required|callback_title_check'); // To use xss_clean it must be configured first in config/config.php
               $this->form_validation->set_rules('body','Body','trim|required');
 
               if($this->form_validation->run() === FALSE){
@@ -57,6 +57,15 @@
                 $data['content'] = 'form_posted';
                 $this->load->view('Layouts/master_view',$data);
               }
+            }
+
+            public function title_check($str){ // Always takes the field value as a param by default
+                  if($str =='test'){
+                        $this->form_validation->set_message('title_check','This field cannot be test');
+                        return false;
+                  }else{
+                        return true;
+                  }
             }
       }
 ?>

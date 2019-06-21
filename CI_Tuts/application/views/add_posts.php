@@ -5,6 +5,7 @@
     'type' => 'text',
     'id' => 'title',
     'class' => 'form-control',
+    'value' => set_value('title'),
     'placeholder' => 'Enter a title'
   );
 
@@ -13,6 +14,7 @@
     'type' => 'text',
     'id' => 'body',
     'class' => 'form-control',
+    'value' => set_value('body'),
     'placeholder' => 'Enter a body for the post'
   );
 
