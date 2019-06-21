@@ -52,11 +52,30 @@
                 $data['content'] = 'add_posts';
                 $this->load->view('Layouts/master_view',$data);
               }else{
-                $data['message'] = 'Hello again! Now we are talking forms with php helper';
-                $data['title'] = 'Codeigniter| Post Response';
-                $data['content'] = 'form_posted';
-                $this->load->view('Layouts/master_view',$data);
+                $title = $this->input->post('title'); // How to extract form field via Codeigniter
+                $body = $this->input->post('body');
+                $data = array(
+                      'title' =>$title,
+                      'body' => $body
+                );
+                $this->load->model('page'); // Load model here or in constructor
+                if($this->page->create($data)){
+                      $data['title'] = 'Codeigniter| Post Response';
+                      $data['content'] = 'form_posted';
+                      $this->load->view('Layouts/master_view',$data);
+                }else{
+                      echo "Segmentation Fault: Post Dumped!";
+                }
+
               }
+            }
+
+            public function posts(){
+                  $data['title'] = 'Codeigniter| All Posts';
+                  $data['content'] = 'posts';
+                  $this->load->model('page');
+                  $data['get_posts'] = $this->page->get_posts();
+                  $this->load->view('Layouts/master_view',$data);
             }
 
             public function title_check($str){ // Always takes the field value as a param by default
