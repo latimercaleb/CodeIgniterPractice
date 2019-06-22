@@ -71,11 +71,61 @@
             }
 
             public function posts(){
+                  $this->load->helper('text'); // Can also be loaded globally via configuration file
                   $data['title'] = 'Codeigniter| All Posts';
                   $data['content'] = 'posts';
                   $this->load->model('page');
                   $data['get_posts'] = $this->page->get_posts();
                   $this->load->view('Layouts/master_view',$data);
+            }
+
+            public function view_post(){
+                  $id = $this->uri->segment(3); // URI helper method returns id from URI route
+                  if(empty($id)){
+                        show_404();
+                  }
+                  $data['title'] = 'CI_Tuts| Specific Post';
+                  $data['content'] = 'view_post';
+                  $this->load->model('page');
+                  $data['post'] = $this->page->view_post($id);
+                  $this->load->view('Layouts/master_view',$data);
+            }
+
+            public function edit_post(){
+                  $id = $this->uri->segment(3);
+                  if(empty($id)){
+                        show_404();
+                  }
+                  $data['title'] = 'CI_Tuts| Edit Post';
+                  $data['content'] = 'edit_post';
+                  $this->load->model('page');
+                  $data['post'] = $this->page->view_post($id);
+                  $this->load->view('Layouts/master_view',$data);
+            }
+
+            public function update_post(){
+                  $id = $this->input->post('post_id');
+                  $title = $this->input->post('title');
+                  $body = $this->input->post('body');
+                  $data = array(
+                        'title' => $title,
+                        'body' => $body
+                  );
+                  $this->load->model('page');
+                  if($this->page->update_post($data,$id)){
+                        redirect('pages/posts');
+                  }
+            }
+
+            public function delete_post(){
+                  $id = $this->uri->segment(3);
+                  if(empty($id)){
+                        show_404();
+                  }
+                  $this->load->model('page');
+                  if($this->page->delete_post($id)){
+                        redirect('pages/posts');
+                  }
             }
 
             public function title_check($str){ // Always takes the field value as a param by default
