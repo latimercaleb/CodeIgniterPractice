@@ -54,6 +54,17 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	switch(dirname(__FILE__)){
+		case 'http://localhost/hmvc_final_project/':
+			define('ENVIRONMENT','development');
+			break;
+		case '/domain/staging.com': // example of what a staging env could be
+			define('ENVIRONMENT','testing');
+			break;
+		default:
+			define('ENVIRONMENT','development');
+			break;
+	}
 
 /*
  *---------------------------------------------------------------
