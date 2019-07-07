@@ -59,22 +59,22 @@
             echo form_open('register',array('class','form-horizontal'));
 
             echo form_input($firstname);
-            echo '<div class="error">'.form_error('firstname').'</div>';
+            echo '<div class="errors">'.form_error('firstname').'</div>';
 
             echo form_input($lastname);
-            echo '<div class="error">'.form_error('lastname').'</div>';
+            echo '<div class="errors">'.form_error('lastname').'</div>';
 
             echo form_input($email);
-            echo '<div class="error">'.form_error('email').'</div>';
+            echo '<div class="errors">'.form_error('email').'</div>';
 
             echo form_input($password);
-            echo '<div class="error">'.form_error('password').'</div>';
+            echo '<div class="errors">'.form_error('password').'</div>';
 
             echo form_input($confirm_password);
-            echo '<div class="error">'.form_error('confirm_password').'</div>';
+            echo '<div class="errors">'.form_error('confirm_password').'</div>';
 
             echo form_dropdown($gender, $gender_options);
-            echo '<div class="error">'.form_error('gender').'</div>';
+            echo '<div class="errors">'.form_error('gender').'</div>';
 
             echo form_submit($register_submit);
       ?>

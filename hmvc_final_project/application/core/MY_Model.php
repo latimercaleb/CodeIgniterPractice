@@ -89,7 +89,7 @@
                   if(empty($key)){
                         return false;
                   }
-                  $this->db->where(htmlentities($key), htmlentities($value))
+                  $this->db->where(htmlentities($key), htmlentities($value));
             }
       }
 ?>
