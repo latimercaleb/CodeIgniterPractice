@@ -15,10 +15,15 @@
             $this->load->view('elements/navigation');
       ?>
       <div class='container'>
-            <div class='row panel' >
-                  <?php
-                        $this->load->view($module.'/'.$view_file);
-                  ?>
+            <div class='row' >
+                  <div class='col-8 center-block'>
+                        <?php
+                              $this->load->view($module.'/'.$view_file);
+                        ?>
+                  </div>
+                  <div class='col-4 center-block'>
+                        <h3>Sidebar</h3>
+                  </div>
             </div>
       </div>
       <?php

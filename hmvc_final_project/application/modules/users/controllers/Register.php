@@ -27,7 +27,7 @@ class Register extends MX_Controller{
                   $password= $this->input->post('password');
                   $gender = $this->input->post('gender');
 
-                  $gender == 'Male' ? $profile_pic = 'male.png' : $profile_pic = 'female.png';
+                  $gender == 'male' ? $profile_pic = 'male.png' : $profile_pic = 'female.png';
 
                   // Implement bcrypt hashing
                   $this->load->library('bcrypt');
