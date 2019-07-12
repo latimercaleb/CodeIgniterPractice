@@ -15,7 +15,7 @@
       <?php
             if ($this->session->flashdata('ProfileImageUpdated')){
                   echo "<div class='col-10'>";
-                  echo "<div class='alert alert-dismissible alert-danger'>";
+                  echo "<div class='alert alert-dismissible alert-success'>";
                   echo "<div class='flash-data'>";
                   echo "<button  type='button' class='close' data-dismiss='alert'> X </button>";
                   echo "<strong>Updated!</strong> ".$this->session->flashdata('ProfileImageUpdated');
@@ -48,7 +48,6 @@
                   <?= form_label('Accepted Formats are .jpg | .jpeg|.png| and size of image should not exceed 500kb','profilefile');?>
                   <?= form_input($image);?>
                   <?= form_submit($image_submit);?>
-                  <!-- Something is broken with this form, figure out what and rework it -->
                   <?= form_close();?>
             </div>
       </div>
