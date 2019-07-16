@@ -22,7 +22,7 @@
                         ?>
                   </div>
                   <div class='col-4 center-block'>
-                        <h3>Sidebar</h3>
+                        <?= Modules::run('categories/categories/get_cat_sidebar');?>
                   </div>
             </div>
       </div>

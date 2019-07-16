@@ -53,3 +53,14 @@ input, select{
 .profile-holder{
 	padding: 2%;
 }
+.sidebar-holder{
+	padding: 0 0 0 45px;
+}
+ul.sidebar{
+	list-style: none;
+	padding-left: 10px;
+}
+
+ul.sidebar li{
+	line-height: 10px;
+}
