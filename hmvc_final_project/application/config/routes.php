@@ -61,6 +61,7 @@ $route['update_profile_pic'] = 'users/dashboard/update_profile_pic';
 $route['edit_profile'] = 'users/dashboard/edit_profile';
 
 $route['add_post'] = 'posts/blog/add_post';
+$route['my_post'] = 'posts/blog/my_post';
 
 $route['default_controller'] = 'users/register';
 $route['404_override'] = '';

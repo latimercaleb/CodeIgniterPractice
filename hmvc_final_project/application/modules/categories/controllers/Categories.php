@@ -10,6 +10,11 @@ class Categories extends MX_Controller{
             // $this->output->set_header('Pragma: no-cache');
       }
 
+      public function get_cat_for_form(){
+             $data['categories'] = $this->category->find();
+             $this->load->view('cat_form', $data);
+      }
+
       public function get_cat_sidebar(){
             $data['categories'] = $this->category->find();
              $this->load->view('cat_sidebar', $data);

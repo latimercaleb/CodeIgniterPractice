@@ -7,5 +7,8 @@ class Post extends MY_Model{
       public function __construct(){
             parent::__construct();
       }
+      public function get_my_post($poster_id){
+            $query = $this->db->select('posts.id AS post_id, posts.poster_id, posts.title, posts.body');
+      }
 }
 ?>
