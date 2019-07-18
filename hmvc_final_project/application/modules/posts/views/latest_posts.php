@@ -22,7 +22,8 @@
                               <h3><?= $post['title'];?></h3>
                               <div class='post_details'>
                                     <small><?= anchor('view_author_profile/'.$post['poster_id'], $post['firstname'].' '.$post['lastname']);?></small>
-                                    <small><?= ucfirst($post['category_name']); ?></small>
+                                    <small> | <?= ucfirst($post['category_name']); ?></small>
+                                    <small> | <?= $post['total_comments']; ?></small>
                               </div>
                               <p><?= word_limiter($post['body'], 30); ?></p>
                               <?= anchor('view_post/'.$post['post_id'], 'Read More', array('class' => 'btn btn-primary')); ?>
